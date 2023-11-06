@@ -1,0 +1,24 @@
+I
+2
+2
+Piotr
+830
+-125
+Purchased 1 stocks of Microhard
+0
+2
+Stock Market
+Yourself
+1
+1
+2000
+-45
+Purchased 3 stocks of Gogole
+0
+2
+Stock Market
+Yourself
+1
+1
+2000
+
