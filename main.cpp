@@ -202,8 +202,9 @@ if(loggedUser == nullptr) throw;
 
 //Operations test - users perform various operations (TEST functions description above main() function). Uncomment the test to check
 {
-    /*
     int target = 3;
+    /*
+    
     u1.login(1, "PassWord");
     Account_And_Transfer_TEST(p1, loggedUser, target);
     //To additionaly verify the test one can check history of the target account. With no outside interference it should display 5 transfers - each with different date
@@ -236,7 +237,7 @@ if(loggedUser == nullptr) throw;
 //TESTING INCORRECT CASES - in this section all functions used by user will be tested for incorrect input parameters.
 
 {
-    u1.login(2, "WordPass");
+    //u1.login(2, "WordPass");
 
     //if(Impossible_Values_TEST(loggedUser, 3, 2)) cout<<"Test passed"<<endl;
 
