@@ -327,11 +327,11 @@ void PersonalAssistant::Sell_Stock(int accNumber, string code, int amount){
 void PersonalAssistant::Remove_Account(int accID){
     for (auto it = accounts.begin(); it != accounts.end(); ++it){
         if((*it).GetID() == accID){
-            string source = ("accounts/"+to_string(accID)+".txt");
+            string source = (to_string(accID)+".txt");
             const char * c = source.c_str();
             remove(c);
             if((*it).Check_If_Investment()){
-                string sourceS = ("accounts/"+to_string(accID)+"s.txt");
+                string sourceS = (to_string(accID)+"s.txt");
                 const char * s = sourceS.c_str();
                 remove(s);
             }
@@ -353,7 +353,7 @@ void PersonalAssistant::Remove_Account(int accID){
 
 void PersonalAssistant::Write_Account(int accountID){
     fstream accFile;
-    accFile.open("accounts/"+to_string(accountID)+".txt", ios::out);
+    accFile.open(to_string(accountID)+".txt", ios::out);
     if(accFile.is_open()){
         if(Check_For_Account_ID(accountID)->Check_If_Investment()){
             accFile << "I" <<endl;
@@ -365,7 +365,7 @@ void PersonalAssistant::Write_Account(int accountID){
     accFile.close();
     if(Check_For_Account_ID(accountID)->Check_If_Investment()){
         fstream stockFile;
-        stockFile.open("accounts/"+to_string(accountID)+"s.txt", ios::out);
+        stockFile.open(to_string(accountID)+"s.txt", ios::out);
         if(stockFile.is_open()){
             stockFile << ((investmentAccount*)(Check_For_Account_ID(accountID)))->Save_Stocks();
         }
@@ -377,7 +377,7 @@ void PersonalAssistant::Write_Account(int accountID){
 
 void PersonalAssistant::Write_Account_IDs(){
     fstream accIDs;
-    accIDs.open("accounts/accountIDs.txt", ios::out);
+    accIDs.open("accountIDs.txt", ios::out);
     for (auto it = accounts.begin(); it != accounts.end(); ++it){
         accIDs << (*it).GetID() << endl;
     }
@@ -401,7 +401,7 @@ void PersonalAssistant::Load_Account(int accountID){
     string balance;
     fstream accFile;
 
-    accFile.open("accounts/"+to_string(accountID)+".txt", ios::in);
+    accFile.open(to_string(accountID)+".txt", ios::in);
     if(accFile.is_open()){
 
         getline(accFile, type);
@@ -454,7 +454,7 @@ void PersonalAssistant::Load_Account(int accountID){
         string stockAmount;
 
         fstream stockFile;
-        stockFile.open("accounts/"+to_string(accountID)+"s.txt", ios::in);
+        stockFile.open(to_string(accountID)+"s.txt", ios::in);
 
                 if(stockFile.is_open()){
                     while(getline(stockFile, stockPrice)){
@@ -475,7 +475,7 @@ void PersonalAssistant::Load_Account(int accountID){
 void PersonalAssistant::Load_All_Accounts(){
     string id;
     fstream accIDs;
-    accIDs.open("accounts/accountIDs.txt", ios::in);
+    accIDs.open("accountIDs.txt", ios::in);
     if(accIDs.is_open()){
       while(getline(accIDs, id)){
         if(id == "") return;
