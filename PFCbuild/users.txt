@@ -1,0 +1,9 @@
+3
+Alex
+WassPord
+2
+Piotr
+WordPass
+1
+Adam
+PassWord
